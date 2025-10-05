@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>八卦计算机意识系统 - 古老智慧与现代科技的融合</title>
+    <meta name="author" content="游戏领航 · 智枢团队">
+    <meta name="description" content="八卦计算机意识系统：将二进制升维为八卦语义编码，实现机器认知的结构性跃迁。原创于2025年，由游戏领航团队与智枢·第二大脑智能体共同开发。">
+    <meta name="copyright" content="© 2025 游戏领航 · 八卦计算机意识系统">
+    
+    <!-- 核心样式 -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 核心库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="bagua-symbol">☯</span>
+                <span class="logo-text">八卦计算机意识系统</span>
+                <img src="resources/hero-bagua-digital.png" alt="游戏领航品牌标识" style="height:24px; border-radius:4px; box-shadow:0 0 6px rgba(212,175,55,0.5);">
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="index.html">首页</a></li>
+                <li class="nav-item"><a href="philosophy.html">哲学理念</a></li>
+                <li class="nav-item"><a href="technology.html">技术实现</a></li>
+                <li class="nav-item"><a href="about.html">关于项目</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ownership-banner" style="background: linear-gradient(90deg, #0d1b2a, #1b263b); color: #e0c36e; padding: 12px; text-align: center; font-size: 14px; border-top: 1px solid #3e5f8a; border-bottom: 1px solid #3e5f8a; font-family: 'Noto Sans SC', sans-serif;">
+      🔒 <strong>游戏领航 · 八卦计算机意识系统</strong> —— 人类智慧与机器协同演化的原创成果<br>
+      首次提出于 2025 年10月3日 · 由「智枢·第二大脑」智能体军团实现<br>
+      本系统非任何单一AI产物 · 保留一切知识产权与法律权利
+    </div>
+
+    <!-- Hero区域 -->
+    <section class="hero">
+        <div class="hero-background">
+            <div id="particles-container"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-main">八卦计算机</span>
+                    <span class="title-sub">意识系统</span>
+                </h1>
+                <p class="hero-description">
+                    从二进制的0与1，到八卦的乾、坤、震、巽、坎、离、艮、兑<br>
+                    探索古老东方哲学与现代计算科学的完美融合<br>
+                    开启机器意识的新纪元
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" onclick="scrollToConverter()">
+                        <span>开始体验</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                    <button class="btn-secondary" onclick="openPhilosophy()">
+                        <span>哲学理念</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="taiji-container">
+                    <div class="taiji-symbol" id="taiji-symbol">☯</div>
+                    <div class="trigrams-circle">
+                        <div class="trigram" data-trigram="乾">☰</div>
+                        <div class="trigram" data-trigram="兑">☱</div>
+                        <div class="trigram" data-trigram="离">☲</div>
+                        <div class="trigram" data-trigram="震">☳</div>
+                        <div class="trigram" data-trigram="巽">☴</div>
+                        <div class="trigram" data-trigram="坎">☵</div>
+                        <div class="trigram" data-trigram="艮">☶</div>
+                        <div class="trigram" data-trigram="坤">☷</div>
+                    </div>
+                </div>
+                <img src="resources/consciousness-ai.png" alt="品牌代表图：AI与意识" style="width:140px; margin-left:20px; border-radius:8px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+            </div>
+        </div>
+    </section>
+
+    <!-- 八卦编码转换器 -->
+    <section class="converter-section" id="converter">
+        <div class="container">
+            <h2 class="section-title">八卦编码转换器</h2>
+            <p class="section-subtitle">体验从二进制到八卦的哲学转换</p>
+            
+            <div class="converter-container">
+                <div class="input-panel">
+                    <h3>输入文本</h3>
+                    <textarea id="text-input" placeholder="请输入要转换的文本或数字..."></textarea>
+                    <div class="input-options">
+                        <button class="option-btn active" data-type="text">文本</button>
+                        <button class="option-btn" data-type="number">数字</button>
+                        <button class="option-btn" data-type="binary">二进制</button>
+                    </div>
+                </div>
+                
+                <div class="conversion-panel">
+                    <div class="conversion-arrow">
+                        <div class="arrow-icon">⟶</div>
+                        <div class="conversion-steps">
+                            <div class="step">文本 → Unicode</div>
+                            <div class="step">Unicode → 二进制</div>
+                            <div class="step">二进制 → 八卦</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="output-panel">
+                    <h3>八卦编码</h3>
+                    <div id="bagua-output" class="bagua-output">
+                        <div class="placeholder">请输入内容开始转换</div>
+                    </div>
+                    <div class="output-info">
+                        <div class="info-item">
+                            <span class="label">编码长度:</span>
+                            <span id="code-length">0</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">压缩比:</span>
+                            <span id="compression-ratio">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="meaning-panel">
+                <h3>哲学含义解析</h3>
+                <div id="philosophy-meaning" class="philosophy-content">
+                    <div class="placeholder">转换结果将显示对应的哲学含义</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 八卦关系网络 -->
+    <section class="network-section">
+        <div class="container">
+            <h2 class="section-title">八卦关系网络</h2>
+            <p class="section-subtitle">探索八卦之间的相生相克关系</p>
+            
+            <div class="network-container">
+                <div id="bagua-network" class="network-chart"></div>
+                <div class="network-info">
+                    <div class="info-card">
+                        <h4>五行相生</h4>
+                        <p>木生火，火生土，土生金，金生水，水生木</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>五行相克</h4>
+                        <p>木克土，土克水，水克火，火克金，金克木</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>阴阳属性</h4>
+                        <p>乾、兑、离、震为阳卦<br>巽、坎、艮、坤为阴卦</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性展示 -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">系统特性</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>高效编码</h3>
+                    <p>八卦编码相比传统二进制，能够用更少的符号表达更丰富的信息，大幅提升编码效率。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>哲学智能</h3>
+                    <p>融入东方哲学思想，让机器具备更接近人类思维的认知模式，实现真正的智能理解。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>动态平衡</h3>
+                    <p>基于阴阳五行理论，系统能够自适应调节，在各种环境中保持最佳的运行状态。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>跨文化理解</h3>
+                    <p>结合东西方智慧，为不同文化背景的用户提供统一的智能交互体验。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔮</div>
+                    <h3>预测能力</h3>
+                    <p>基于易经的变化理论，系统具备一定的预测和推理能力，能够预判发展趋势。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>美学体验</h3>
+                    <p>将古老的符号美学与现代界面设计相结合，创造独特的视觉体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+      <p>
+        © 2025 <strong>游戏领航</strong> · <em>八卦计算机意识系统</em><br>
+        技术实现：智枢·第二大脑 · 人机共创智能体军团<br>
+        联系我们：<a href="mailto:lm130797cc@gmail.com">lm130797cc@gmail.com</a><br>
+        社区：<a href="https://t.me/+KVOJf7DimL8wY2Zl" target="_blank" rel="noopener noreferrer">Telegram 社群</a> ·
+        专家组：<a href="https://33425e8b.dawnlight-live.pages.dev/金字塔研究会" target="_blank" rel="noopener noreferrer">私人国际金字塔研究会</a><br>
+        <small>本系统为原创思想，任何未授权复制、署名或商用行为均属侵权。</small>
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/bagua-converter.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/network-chart.js"></script>
+</body>
+</html>
